@@ -1,9 +1,9 @@
 import React from "react";
 import Expo, { AppLoading } from "expo";
-
+import{ Provider} from "react-redux"
 // Component
 import HomePage from "./Components/HomePage";
-
+import store from"./store"
 class App extends React.Component {
   constructor() {
     super();
@@ -22,7 +22,7 @@ class App extends React.Component {
     if (!this.state.fontsAreLoaded) {
       return <AppLoading />;
     }
-    return <HomePage />;
+    return <Provider store={store}><HomePage /></Provider>;
   }
 }
 

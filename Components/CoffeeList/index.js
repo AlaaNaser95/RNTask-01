@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ImageBackground, View, TouchableOpacity } from "react-native";
-
+import { connect } from "react-redux";
 // NativeBase Components
 import {
   List,
@@ -58,5 +58,12 @@ class CoffeeList extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+ coffeeShops: state.coffee.coffeeShops,
+ loading:state.coffee.loading,
+ list:state.cart.list
+});
 
-export default CoffeeList;
+export default connect(
+ mapStateToProps
+)(CoffeeList);
